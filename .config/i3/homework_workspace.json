@@ -1,0 +1,48 @@
+{
+
+"layout": "splith",
+"percent": 0.5,
+"type": "con",
+"nodes": [
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 458,
+       "width": 722,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "vim",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Gnome\\-terminal$"
+       }
+    ],
+    "type": "con"
+},
+
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 740,
+       "width": 1362,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "Markdown Preview",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}]
+}

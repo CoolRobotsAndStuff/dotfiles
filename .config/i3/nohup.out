@@ -1,0 +1,10 @@
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+Testing for explicit PulseAudio choice...
+...and PulseAudio has been explicitly chosen, so using it.
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+Error opening audio file "/snap/bucklespring/79/wav/72-1.wav": Failed to open file
+Error opening audio file "/snap/bucklespring/79/wav/72-0.wav": Failed to open file
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+Testing for explicit PulseAudio choice...
+...and PulseAudio has been explicitly chosen, so using it.
+/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)

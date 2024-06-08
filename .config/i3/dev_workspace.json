@@ -1,0 +1,89 @@
+{
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+
+            {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.7,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                        "height": 458,
+                        "width": 722,
+                        "x": 0,
+                        "y": 0
+                    },
+                    "marks": [],
+                    "name": "vim",
+                    "percent": 0.7,
+                    "swallows": [
+                        {
+                        "class": "^Gnome\\-terminal$"
+                        }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "splitv",
+                    "marks": [],
+                    "percent": 0.3,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "pixel",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                                "height": 458,
+                                "width": 722,
+                                "x": 0,
+                                "y": 0
+                            },
+                            "marks": [],
+                            "name": "terminal",
+                            "percent": 1,
+                            "swallows": [
+                                {
+                                "class": "^Gnome\\-terminal$"
+                                }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+                "height": 458,
+                "width": 722,
+                "x": 0,
+                "y": 0
+            },
+            "marks": [],
+            "name": "terminal for git",
+            "percent": 0.3,
+            "swallows": [
+                {
+                    "class": "^Gnome\\-terminal$"
+                }
+            ],
+            "type": "con"
+        }
+    ]
+}
