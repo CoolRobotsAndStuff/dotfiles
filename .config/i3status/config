@@ -1,0 +1,52 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+        color_good = "#7aa2f7"
+        color_degraded = "#ff9e64"
+        color_bad = "#f7768e"
+}
+
+
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery 0"
+order += "memory"
+order += "cpu_usage"
+order += "time"
+
+wireless _first_ {
+        format_up = " WLS %quality at %essid - %bitrate - %ip "
+        format_down = ""
+}
+
+ethernet _first_ {
+        format_up = " ETH %ip %speed "
+        format_down = ""
+}
+
+battery 0 {
+        status_full = "FUL"
+        format = " %status %percentage " 
+        path = "/sys/class/power_supply/BAT1/uevent"
+        integer_battery_capacity = true
+        low_threshold = 30
+}
+
+cpu_usage {
+    format = " CPU %usage "
+  }
+
+time {
+        format = " %d/%m/%Y %H:%M:%S "
+}
+
+
+memory {
+        format = " MEM %available "
+        threshold_degraded = 1GiB 
+        format_degraded = " LOW %available "
+        threshold_critical = 500MiB
+}
+
+
