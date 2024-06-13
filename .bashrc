@@ -156,6 +156,8 @@ alias gs='git status'
 alias ga='git add'
 alias gp='git pull'
 
+alias lsa='ls -a'
+
 alias nano=nvim
 
 export PYTHONPATH=$WEBOTS_HOME/lib/controller/python
@@ -174,9 +176,11 @@ eval "$(thefuck --alias fuck)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH=$PATH:/home/ale/.spicetify
+
 export GH_EDITOR=nvim
-alias t='nvim -c ":terminal" -c ":startinsert" -c ":setlocal nonumber norelativenumber"'
-# set -o vi
+
+set -o vi
+bind '"ññ":vi-movement-mode'
 
 # Use nvim term as default terminal emulator
 # Ensure "nvim" is a valid command, and open a terminal emulator buffer.
@@ -185,3 +189,6 @@ alias t='nvim -c ":terminal" -c ":startinsert" -c ":setlocal nonumber norelative
 #fi
 #
 export PATH=$PATH:/home/ale/.cargo/bin
+
+
+
