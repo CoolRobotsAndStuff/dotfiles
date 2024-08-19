@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm-color | *-256color) color_prompt=yes ;;
+xterm-color | alacritty | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -157,6 +157,7 @@ alias ga='git add'
 alias gp='git pull'
 
 alias lsa='ls -a'
+alias sv='source ./venv/bin/activate'
 
 alias nano=nvim
 
@@ -178,9 +179,20 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH=$PATH:/home/ale/.spicetify
 
 export GH_EDITOR=nvim
+export EDITOR=nvim
 
+# vi mode
 set -o vi
+
+# beam for insert block for normal
+bind -m vi-command 'set show-mode-in-prompt on'
+bind -m vi-command 'set vi-cmd-mode-string "\1\e[2 q\2"'
+bind -m vi-insert  'set vi-ins-mode-string "\1\e[6 q\2"'
+
 bind '"ññ":vi-movement-mode'
+
+alias cd=c
+alias cdi=ci
 
 # Use nvim term as default terminal emulator
 # Ensure "nvim" is a valid command, and open a terminal emulator buffer.

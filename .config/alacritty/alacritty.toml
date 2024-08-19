@@ -25,10 +25,6 @@ magenta = '#bb9af7'
 cyan    = '#0db9d7'
 white   = '#acb0d0'
 
-# Font
-
-[font]
-size = 12.0
 
 [font.bold]
 family = "FiraCodeNerdFont"
@@ -45,3 +41,7 @@ style = "Italic"
 [font.normal]
 family = "FiraCodeNerdFont"
 style = "Regular"
+
+[font.offset]
+y = 1
+

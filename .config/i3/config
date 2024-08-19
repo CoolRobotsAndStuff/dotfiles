@@ -118,7 +118,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-bindsym $mod+c exec xdotool mousedown 1 && sleep 0.5 && xdotool mouseup 1
 # focus the parent container
 # bindsym $mod+a focus parent
 
@@ -140,16 +139,26 @@ set $ws10 "10"
 
 # switch to workspace
 
-bindsym $mod+u workspace number $ws1, exec focus_current_window
-bindsym $mod+i workspace number $ws2, exec focus_current_window
-bindsym $mod+o workspace number $ws3, exec focus_current_window
-bindsym $mod+p workspace number $ws4, exec focus_current_window
-bindsym $mod+5 workspace number $ws5, exec focus_current_window
-bindsym $mod+6 workspace number $ws6, exec focus_current_window
-bindsym $mod+7 workspace number $ws7, exec focus_current_window
-bindsym $mod+8 workspace number $ws8, exec focus_current_window
-bindsym $mod+9 workspace number $ws9, exec focus_current_window
-bindsym $mod+0 workspace number $ws10, exec focus_current_window
+bindsym $mod+u workspace number $ws1 
+#, exec focus_current_window
+bindsym $mod+i workspace number $ws2 
+#, exec focus_current_window
+bindsym $mod+o workspace number $ws3 
+#, exec focus_current_window
+bindsym $mod+p workspace number $ws4 
+#, exec focus_current_window
+bindsym $mod+5 workspace number $ws5 
+#, exec focus_current_window
+bindsym $mod+6 workspace number $ws6 
+#, exec focus_current_window
+bindsym $mod+7 workspace number $ws7 
+#, exec focus_current_window
+bindsym $mod+8 workspace number $ws8 
+#, exec focus_current_window
+bindsym $mod+9 workspace number $ws9 
+#, exec focus_current_window
+bindsym $mod+0 workspace number $ws10 
+#, exec focus_current_window
 workspace_auto_back_and_forth yes
 focus_wrapping no
 
@@ -450,7 +459,7 @@ bar {
 
 exec xinput set-prop "SYNA7DB5:00 06CB:7DAB Touchpad" "libinput Tapping Enabled" 1
 exec xinput set-prop "SYNA7DB5:00 06CB:7DAB Touchpad" "libinput Natural Scrolling Enabled" 1
-
+# exec ~/Projects/telepathy2/venv/bin/python ~/Projects/telepathy2/src/main.py
 
 set $Locker i3lock --color=24283b 
 
@@ -472,7 +481,7 @@ mode "$mode_system" {
 
 bindsym Pause mode "$mode_system"
 
-set $menu Quick menu: (b) connect to earphones, (d) disconnect from earphones, (k) buckle, (l) laptop display 
+set $menu Quick menu: (b) connect to earphones, (d) disconnect from earphones, (k) buckle, (l) laptop display
 mode "$menu" {
     bindsym b exec --no-startup-id bluetoothctl connect 74:2A:8A:B8:11:0F, mode "default"
     bindsym d exec --no-startup-id bluetoothctl disconnect 74:2A:8A:B8:11:0F, mode "default" 
@@ -485,6 +494,8 @@ mode "$menu" {
 }
 
 bindsym $mod+m mode "$menu"
+
+bindsym Mod1+space exec --no-startup-id telepathy_msg toggle 
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -510,4 +521,5 @@ exec --no-startup-id sleep 0.2 && nohup bucklespring.buckle -v &
 exec --no-startup-id /bin/bash -c "sleep 0.1 && configure_monitors"
 workspace 1 output primary
 
-focus_follows_mouse yes
+focus_follows_mouse no
+exec_always export QT_STYLE_OVERRIDE=kvantum
