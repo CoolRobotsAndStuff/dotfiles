@@ -60,7 +60,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec gnome-terminal -- bash -c "start_vim_term.sh"
-bindsym $mod+Return exec /home/ale/.cargo/bin/alacritty
+bindsym $mod+Return exec /usr/bin/alacritty  
 #nvim -c 'term'"
 
 # kill focused window
@@ -512,10 +512,11 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 
 bindsym $mod+b exec librewolf
 
+exec_always setxkbmap es
 exec_always setxkbmap -layout latam
 exec --no-startup-id picom --daemon --backend glx --vsync --xrender-sync-fence
 exec_always --no-startup-id hsetroot -solid '#000000'
-exec_always --no-startup-id kdeconnect-cli --refresh
+exec_always --no-startup-id dbus-run-session kdeconnect-cli --refresh
 
 exec --no-startup-id sleep 0.2 && nohup bucklespring.buckle -v & 
 exec --no-startup-id /bin/bash -c "sleep 0.1 && configure_monitors"

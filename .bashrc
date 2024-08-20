@@ -119,25 +119,25 @@ alias vim=nvim
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ale/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-	eval "$__conda_setup"
-else
-	if [ -f "/home/ale/miniconda3/etc/profile.d/conda.sh" ]; then
-		. "/home/ale/miniconda3/etc/profile.d/conda.sh"
-	else
-		export PATH="/home/ale/miniconda3/bin:$PATH"
-	fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-# conda autocompletion
-CONDA_ROOT=~/miniconda3 # <- set to your Anaconda/Miniconda installation directory
-if [[ -r $CONDA_ROOT/etc/profile.d/bash_completion.sh ]]; then
-	source $CONDA_ROOT/etc/profile.d/bash_completion.sh
-else
-	echo "WARNING: could not find conda-bash-completion setup script"
-fi
+# __conda_setup="$('/home/ale/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
+# if [ $? -eq 0 ]; then
+# 	eval "$__conda_setup"
+# else
+# 	if [ -f "/home/ale/miniconda3/etc/profile.d/conda.sh" ]; then
+# 		. "/home/ale/miniconda3/etc/profile.d/conda.sh"
+# 	else
+# 		export PATH="/home/ale/miniconda3/bin:$PATH"
+# 	fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+# # conda autocompletion
+# CONDA_ROOT=~/miniconda3 # <- set to your Anaconda/Miniconda installation directory
+# if [[ -r $CONDA_ROOT/etc/profile.d/bash_completion.sh ]]; then
+# 	source $CONDA_ROOT/etc/profile.d/bash_completion.sh
+# else
+# 	echo "WARNING: could not find conda-bash-completion setup script"
+# fi
 # end conda autocompletion
 
 # Add golang
@@ -165,18 +165,18 @@ export PYTHONPATH=$WEBOTS_HOME/lib/controller/python
 
 export TURTLEBOT3_MODEL=burger
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ale/Downloads/installers/google-cloud-sdk/path.bash.inc' ]; then . '/home/ale/Downloads/installers/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/ale/Downloads/installers/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ale/Downloads/installers/google-cloud-sdk/completion.bash.inc'; fi
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/ale/Downloads/installers/google-cloud-sdk/path.bash.inc' ]; then . '/home/ale/Downloads/installers/google-cloud-sdk/path.bash.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/home/ale/Downloads/installers/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ale/Downloads/installers/google-cloud-sdk/completion.bash.inc'; fi
 
 eval "$(zoxide init bash --cmd c)"
 eval "$(thefuck --alias fuck)"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export PATH=$PATH:/home/ale/.spicetify
+# export PATH=$PATH:/home/ale/.spicetify
 
 export GH_EDITOR=nvim
 export EDITOR=nvim
@@ -190,6 +190,8 @@ bind -m vi-command 'set vi-cmd-mode-string "\1\e[2 q\2"'
 bind -m vi-insert  'set vi-ins-mode-string "\1\e[6 q\2"'
 
 bind '"ññ":vi-movement-mode'
+alias cd=c
+alias cdi=ci
 
 alias cd=c
 alias cdi=ci
@@ -200,7 +202,6 @@ alias cdi=ci
 #    nvim -c ":terminal" -c ":startinsert"
 #fi
 #
-export PATH=$PATH:/home/ale/.cargo/bin
 
 
-
+. "$HOME/.cargo/env"
