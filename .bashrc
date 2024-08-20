@@ -154,7 +154,8 @@ alias sb='source ~/.bashrc'
 
 alias gs='git status'
 alias ga='git add'
-alias gp='git pull'
+alias gpl='git pull'
+alias gps='git push'
 
 alias lsa='ls -a'
 alias sv='source ./venv/bin/activate'
