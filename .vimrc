@@ -199,6 +199,10 @@ set nowritebackup
 set backupdir=~/.vim/junk//
 set undodir=~/.vim/junk//
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
 call plug#begin()
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'svermeulen/vim-cutlass'
