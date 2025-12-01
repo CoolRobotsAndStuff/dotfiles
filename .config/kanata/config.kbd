@@ -1,7 +1,0 @@
-(defsrc
-    caps )
-
-(deflayer base
-    (tap-dance 200 (mlft mrgt mmid))
-)
-

@@ -115,8 +115,6 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-alias vim=nvim
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/ale/miniconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
@@ -143,23 +141,20 @@ fi
 # Add golang
 export PATH=$PATH:/usr/local/go/bin
 
-#export PYTHONPATH="/home/ale/Proyects/simple-language-maker"
 export PYTHONENCODING="UTF-8"
-export WEBOTS_CONTROLLER_URL="tcp://192.168.56.1:1234/Erebus_Bot_1"
 alias python=python3
 alias py=python3
 
-alias eb='nvim ~/.bashrc'
+alias eb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 
-alias gs='git status'
 alias ga='git add'
-alias gp='git pull'
+alias gpl='git pull'
+alias gps='git push'
+alias gs='git status'
 
 alias lsa='ls -a'
 alias sv='source ./venv/bin/activate'
-
-alias nano=nvim
 
 export PYTHONPATH=$WEBOTS_HOME/lib/controller/python
 
@@ -178,8 +173,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH=$PATH:/home/ale/.spicetify
 
-export GH_EDITOR=nvim
-export EDITOR=nvim
+export GH_EDITOR=vim
+export EDITOR=vim
 
 # vi mode
 set -o vi
@@ -194,13 +189,12 @@ bind '"ññ":vi-movement-mode'
 alias cd=c
 alias cdi=ci
 
-# Use nvim term as default terminal emulator
-# Ensure "nvim" is a valid command, and open a terminal emulator buffer.
-#if ((command -v nvim >/dev/null 2>&1) && [[ -z $NVIM ]]); then
-#    nvim -c ":terminal" -c ":startinsert"
-#fi
-#
-export PATH=$PATH:/home/ale/.cargo/bin
+export PATH=$PATH:~/.cargo/bin
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
+alias rc="python3 ~/calc.py"
+alias ec="vim ~/calc.py"
+export NOB_URL=https://raw.githubusercontent.com/tsoding/nob.h/refs/heads/main/nob.h
