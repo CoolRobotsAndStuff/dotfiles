@@ -206,8 +206,17 @@ endif
 call plug#begin()
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'svermeulen/vim-cutlass'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Neovim-only plugin
+if has('nvim')
+    Plug 'chomosuke/typst-preview.nvim', {'tag': 'v1.*'}
+
+    call serverstart(tempname())
+    let &titlestring="nvim %F -- [" . v:servername . "]"
+    set title
+endif
 call plug#end()
+filetype indent off
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
@@ -234,3 +243,4 @@ endfunction
 
 " Bind Space + e to toggle Netrw
 nnoremap <silent> <Space>e :call ToggleNetrw()<CR>
+
