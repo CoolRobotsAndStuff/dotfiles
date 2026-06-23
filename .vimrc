@@ -23,6 +23,8 @@ vnoremap ÑÑ <Esc>
 tnoremap ÑÑ <C-\><C-n>
 cnoremap ÑÑ <C-c>
 
+nnoremap H :split<CR><C-]>:silent resize 5<CR>:set nonumber<CR>:set norelativenumber<CR>:setlocal scrolloff=0<CR>:setlocal laststatus=0<CR>:setlocal linebreak<CR>ztva(V
+
 nnoremap gd <C-]>
 nnoremap gb <C-T>
 
@@ -37,10 +39,19 @@ xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 xnoremap <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
+nnoremap <Space>h <C-w>h
+nnoremap <Space>j <C-w>j
+nnoremap <Space>k <C-w>k
+nnoremap <Space>l <C-w>l
+nnoremap <Space>q <C-w>q
+nnoremap <Space>< 5<C-w><
+nnoremap <Space>> 5<C-w>>
 
 " Half page up/down
 nnoremap J <C-D>
 nnoremap K <C-U>
+" show man
+nnoremap <C-H> K
 
 
 " Better indenting
@@ -58,8 +69,8 @@ nnoremap <Tab> >>
 " i3-like splits
 nnoremap - <C-W>s
 vnoremap - <C-W>s
-"nnoremap | <C-W>v
-"vnoremap | <C-W>v
+"nnoremap "|" <C-W>v
+"vnoremap "|" <C-W>v
 
 
 " Move lines
@@ -74,15 +85,10 @@ vnoremap <Esc>k :m '<-2<CR>gv=gv
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap ; ;<C-g>u
-noremap H ^
-noremap L $
-
 
 " Enter key inserts newline
 nnoremap <CR> i<CR><Esc>
 
-
-" Classical Vimscript equivalent
 
 set shortmess=astWAIcT
 set cmdheight=3
@@ -93,9 +99,6 @@ set relativenumber
 
 " Mouse support
 set mouse=a
-
-" Don't show mode (already in statusline)
-set noshowmode
 
 " Sync clipboard with OS
 set clipboard=unnamedplus
@@ -112,8 +115,6 @@ endif
 set ignorecase
 set smartcase
 
-" Keep signcolumn on by default
-set signcolumn=yes
 
 " Decrease update time
 set updatetime=250
@@ -128,9 +129,6 @@ set splitbelow
 " Display certain whitespace characters
 set list
 set listchars=tab:»\ ,trail:·,nbsp:␣
-
-" Show which line the cursor is on
-set cursorline
 
 " Minimal lines around cursor
 set scrolloff=10
@@ -159,11 +157,10 @@ let g:VM_default_mappings           = 0
 let g:VM_maps                       = {}
 let g:VM_maps["Add Cursor Down"]    = '<C-j>'
 let g:VM_maps["Add Cursor Up"]      = '<C-k>'
-let g:VM_maps["Select Cursor Down"] = '<C-j>'      " start selecting down
-let g:VM_maps["Select Cursor Up"]   = '<C-k>'
+" let g:VM_maps["Select Cursor Down"] = '<C-j>'      " start selecting down
+" let g:VM_maps["Select Cursor Up"]   = '<C-k>'
 let g:VM_maps["Exit"]               = 'ññ'        " start selecting up cool stuff basically
-
-set nocursorline
+let g:VM_maps["Switch Mode"]        = 'v'
 
 let &t_SI = "\e[6 q"   " Insert mode: line cursor
 let &t_EI = "\e[2 q"   " Normal/Visual mode: block cursor
@@ -193,11 +190,17 @@ xnoremap x d
 nnoremap xx dd
 nnoremap X D
 
+nnoremap Y v$y
+
+vnoremap p "_dP
+
 set nobackup
 set nowritebackup
 
+set directory=~/.vim/junk//
 set backupdir=~/.vim/junk//
 set undodir=~/.vim/junk//
+set termguicolors
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -206,16 +209,17 @@ endif
 call plug#begin()
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'svermeulen/vim-cutlass'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
+filetype indent off
 
 let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
+let g:tokyonight_enable_italic = 0
 
 colorscheme tokyonight
 
+let g:netrw_liststyle= 3
 let g:NetrwIsOpen=0
-
 function! ToggleNetrw()
     if g:NetrwIsOpen
         let i = bufnr("$")
@@ -234,3 +238,15 @@ endfunction
 
 " Bind Space + e to toggle Netrw
 nnoremap <silent> <Space>e :call ToggleNetrw()<CR>
+
+nnoremap <Space>t :silent !ctags -R > /dev/null 2>&1<CR> :redraw!<CR> :set tags=tags <CR>
+
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   execute "normal! g`\"" |
+    \ endif
+
+autocmd BufRead,BufNewFile *.dtr set filetype=elm
+autocmd BufRead,BufNewFile *.le set filetype=rust
+
+set expandtab
